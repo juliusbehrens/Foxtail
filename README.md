@@ -1,0 +1,2 @@
+# Foxtail
+A chess engine.
