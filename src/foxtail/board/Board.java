@@ -10,7 +10,7 @@ public class Board {
     public static final int TILES_PER_ROW = 8;
 
     public static List<Boolean> getBooleanColumn(int columnNumber) {
-        List<Boolean> column = new ArrayList<>();
+        List<Boolean> column = new ArrayList<Boolean>();
         for(int i = 0; i < TILES; ++i) {
             column.add(false);
         }
