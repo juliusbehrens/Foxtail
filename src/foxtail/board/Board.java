@@ -21,6 +21,17 @@ public class Board {
         return Collections.unmodifiableList(column);
     }
 
+    public static List<Boolean> getBooleanRow(int rowNumber) {
+        List<Boolean> row = new ArrayList<Boolean>();
+        for(int i = 0; i < TILES; ++i) {
+            row.add(false);
+        }
+        for(int i = 0; i < TILES_PER_ROW; ++i) {
+            row.set((rowNumber*(TILES_PER_ROW))+i,true);
+        }
+        return Collections.unmodifiableList(row);
+    }
+
     public Tile getTile(final int coordinate) {
         return null;
     }

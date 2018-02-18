@@ -25,10 +25,10 @@ public class Bishop extends Piece {
             int candidateCoordinate = this.position;
             while (Tile.isValidCoordinate(candidateCoordinate)) {
                 if (
-                        (Board.getBooleanColumn(0).get(position) && (
+                        (Board.getBooleanColumn(0).get(this.position) && (
                                 (candidate == -9)   ||
                                 (candidate == 7) )) ||
-                        (Board.getBooleanColumn(7).get(position) && (
+                        (Board.getBooleanColumn(7).get(this.position) && (
                                 (candidate == -7)   ||
                                 (candidate == 9) ))
                    )

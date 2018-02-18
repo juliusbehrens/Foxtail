@@ -13,7 +13,7 @@ import java.util.List;
 
 public class Knight extends Piece{
 
-    public Knight(int position, Color color) {
+    public Knight(final int position, final Color color) {
         super(position, color);
     }
 
@@ -23,18 +23,18 @@ public class Knight extends Piece{
         final int[] candidates = { -17, -15, -10, -6, 6, 10, 15, 17 };
         for (final int candidate : candidates) {
             if (
-                    (Board.getBooleanColumn(0).get(position) && (
+                    (Board.getBooleanColumn(0).get(this.position) && (
                             (candidate == -17)  ||
                             (candidate == -10)  ||
                             (candidate == 6)    ||
                             (candidate == 15))) ||
-                    (Board.getBooleanColumn(1).get(position) && (
+                    (Board.getBooleanColumn(1).get(this.position) && (
                             (candidate == -10)  ||
                             (candidate == 6)))   ||
-                    (Board.getBooleanColumn(6).get(position) && (
+                    (Board.getBooleanColumn(6).get(this.position) && (
                             (candidate == -6)   ||
                             (candidate == 10)))  ||
-                    (Board.getBooleanColumn(7).get(position) && (
+                    (Board.getBooleanColumn(7).get(this.position) && (
                             (candidate == -15)  ||
                             (candidate == -6)   ||
                             (candidate == 10)   ||
