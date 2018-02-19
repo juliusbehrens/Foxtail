@@ -51,7 +51,7 @@ public class Knight extends Piece{
                     moves.add(new MajorMove(board, this, candidateCoordinate));
                 } else {
                     final Piece pieceAtDestination = candidateTile.getPiece();
-                    if (this.getColor() != pieceAtDestination.getColor()) {
+                    if (this.color != pieceAtDestination.getColor()) {
                         moves.add(new AttackMove(board, this, candidateCoordinate,
                                 pieceAtDestination));
                     }

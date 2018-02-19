@@ -7,8 +7,8 @@ import foxtail.board.move.Move;
 import java.util.List;
 
 public abstract class Piece {
-    final int position;
-    final Color color;
+    protected final int position;
+    protected final Color color;
 
     public Piece(final int position, final Color color) {
         this.position = position;
