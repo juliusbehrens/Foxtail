@@ -13,8 +13,8 @@ import java.util.List;
 
 public class Knight extends Piece{
 
-    public Knight(final int position, final Color color) {
-        super(position, color);
+    public Knight(final Color color, final int position) {
+        super(color, position);
     }
 
     @Override

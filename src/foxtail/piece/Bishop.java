@@ -13,8 +13,8 @@ import java.util.List;
 
 public class Bishop extends Piece {
 
-    public Bishop(final int position, final Color color) {
-        super(position, color);
+    public Bishop(final Color color, final int position) {
+        super(color, position);
     }
 
     @Override

@@ -11,8 +11,8 @@ import java.util.List;
 
 public class Pawn extends Piece {
 
-    public Pawn(final int position, final Color color) {
-        super(position, color);
+    public Pawn(final Color color, final int position) {
+        super(color, position);
     }
 
     @Override

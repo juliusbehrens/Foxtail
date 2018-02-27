@@ -13,8 +13,8 @@ import java.util.List;
 
 public class Rook extends Piece {
 
-    public Rook(final int position, final Color color) {
-        super(position, color);
+    public Rook(final Color color, final int position) {
+        super(color, position);
     }
 
     @Override
