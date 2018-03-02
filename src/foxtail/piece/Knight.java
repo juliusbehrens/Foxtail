@@ -18,6 +18,16 @@ public class Knight extends Piece{
     }
 
     @Override
+    public String toString() {
+        return this.color.isWhite() ? "N" : "n";
+    }
+
+    @Override
+    public String toUnicodeString() {
+        return this.color.isWhite() ? "\u2658" : "\u265E";
+    }
+
+    @Override
     public List<Move> getMoves(final Board board) {
         final List<Move> moves = new ArrayList<>();
         final int[] candidates = { -17, -15, -10, -6, 6, 10, 15, 17 };

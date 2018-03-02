@@ -18,6 +18,16 @@ public class Bishop extends Piece {
     }
 
     @Override
+    public String toString() {
+        return this.color.isWhite() ? "B" : "b";
+    }
+
+    @Override
+    public String toUnicodeString() {
+        return this.color.isWhite() ? "\u2657" : "\u265D";
+    }
+
+    @Override
     public List<Move> getMoves(final Board board) {
         final List<Move> moves = new ArrayList<>();
         final int[] candidates = {-9, -7, 7, 9};

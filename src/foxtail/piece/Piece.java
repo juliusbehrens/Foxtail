@@ -32,4 +32,6 @@ public abstract class Piece {
     }
 
     public abstract List<Move> getMoves(final Board board);
+    public abstract String toString();
+    public abstract String toUnicodeString();
 }

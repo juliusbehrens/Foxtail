@@ -3,6 +3,7 @@ package foxtail.board;
 import foxtail.Color;
 import foxtail.piece.Piece;
 
+import java.util.HashMap;
 import java.util.Map;
 
 
@@ -12,7 +13,7 @@ public final class BoardBuilder {
      private Color currentColor;
 
     public BoardBuilder() {
-
+        this.pieces = new HashMap<>();
     }
 
     public BoardBuilder setPiece(final Piece piece) {

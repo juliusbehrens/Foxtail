@@ -11,6 +11,19 @@ public class Tile {
         this.piece = piece;
     }
 
+    @Override
+    public String toString() {
+        return this.isOccupied() ?
+                (this.piece.getColor().isWhite() ?
+                 this.piece.toString() :
+                 this.piece.toString().toLowerCase())
+                : "-";
+    }
+
+    public String toUnicodeString() {
+        return this.isOccupied() ? this.piece.toUnicodeString() : " ";
+    }
+
     public Piece getPiece() {
         return this.piece;
     }

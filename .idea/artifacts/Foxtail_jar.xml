@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Foxtail:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Foxtail_jar</output-path>
+    <root id="archive" name="Foxtail.jar">
+      <element id="module-output" name="Foxtail" />
+    </root>
+  </artifact>
+</component>

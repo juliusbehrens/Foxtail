@@ -18,6 +18,16 @@ public class Rook extends Piece {
     }
 
     @Override
+    public String toString() {
+        return this.color.isWhite() ? "R" : "r";
+    }
+
+    @Override
+    public String toUnicodeString() {
+        return this.color.isWhite() ? "\u2656" : "\u265C";
+    }
+
+    @Override
     public List<Move> getMoves(final Board board) {
         final List<Move> moves = new ArrayList<>();
         final int[] candidates = {-8, -1, 1, 8 };

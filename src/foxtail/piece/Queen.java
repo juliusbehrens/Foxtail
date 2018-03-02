@@ -18,6 +18,16 @@ public class Queen extends Piece {
     }
 
     @Override
+    public String toString() {
+        return this.color.isWhite() ? "Q" : "q";
+    }
+
+    @Override
+    public String toUnicodeString() {
+        return this.color.isWhite() ? "\u2655" : "\u265B";
+    }
+
+    @Override
     public List<Move> getMoves(final Board board) {
         final List<Move> moves = new ArrayList<>();
         final int[] candidates = {-9, -8, -7, -1, 1, 7, 8, 9};

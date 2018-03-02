@@ -1,6 +1,7 @@
 package foxtail.board;
 
 import foxtail.Color;
+import foxtail.board.move.Move;
 import foxtail.piece.*;
 
 import java.util.ArrayList;
@@ -42,6 +43,34 @@ public class Board {
         this.board = createBoard(boardBuilder);
         this.whitePieces = getWhitePieces(this.board);
         this.blackPieces = getBlackPieces(this.board);
+
+        final List<Move> whiteMoves = getMoves(this.whitePieces);
+        final List<Move> blackMoves = getMoves(this.blackPieces);
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < Board.TILES; ++i) {
+            final String tileText = this.board.get(i).toString();
+            builder.append(String.format("%3s", tileText));
+            if ((i + 1) % Board.TILES_PER_ROW == 0) {
+                builder.append("\n");
+            }
+        }
+        return builder.toString();
+    }
+
+    public String toUnicodeString() {
+        final StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < Board.TILES; ++i) {
+            final String tileText = this.board.get(i).toUnicodeString();
+            builder.append(String.format("%3s", tileText));
+            if ((i + 1) % Board.TILES_PER_ROW == 0) {
+                builder.append("\n");
+            }
+        }
+        return builder.toString();
     }
 
     private static List<Piece> getWhitePieces(final List<Tile> board) {
@@ -64,10 +93,18 @@ public class Board {
         return Collections.unmodifiableList(blackPieces);
     }
 
+    private List<Move> getMoves(final List<Piece> pieces) {
+        final List<Move> moves = new ArrayList<Move>();
+        for(final Piece piece : pieces) {
+            moves.addAll(piece.getMoves(this));
+        }
+        return Collections.unmodifiableList(moves);
+    }
+
     private static List<Tile> createBoard(final BoardBuilder boardBuilder) {
-        final List<Tile> board= new ArrayList<Tile>();
+        final List<Tile> board = new ArrayList<>();
         for(int i = 0; i < Board.TILES; ++i) {
-            board.add(new Tile(0, boardBuilder.pieces.get(i)));
+            board.add(new Tile(i, boardBuilder.pieces.get(i)));
         }
         return Collections.unmodifiableList(board);
     }
