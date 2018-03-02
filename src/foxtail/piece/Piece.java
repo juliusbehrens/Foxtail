@@ -7,9 +7,9 @@ import foxtail.board.move.Move;
 import java.util.List;
 
 public abstract class Piece {
-    protected final int position;
-    protected final Color color;
-    protected final boolean firstMove;
+    final int position;
+    final Color color;
+    final boolean firstMove;
 
     public Piece(final Color color, final int position) {
         this.color = color;
@@ -34,4 +34,11 @@ public abstract class Piece {
     public abstract List<Move> getMoves(final Board board);
     public abstract String toString();
     public abstract String toUnicodeString();
+
+    public abstract boolean isPawn();
+    public abstract boolean isKnight();
+    public abstract boolean isBishop();
+    public abstract boolean isRook();
+    public abstract boolean isQueen();
+    public abstract boolean isKing();
 }

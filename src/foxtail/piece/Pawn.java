@@ -26,6 +26,36 @@ public class Pawn extends Piece {
     }
 
     @Override
+    public boolean isPawn() {
+        return true;
+    }
+
+    @Override
+    public boolean isKnight() {
+        return false;
+    }
+
+    @Override
+    public boolean isBishop() {
+        return false;
+    }
+
+    @Override
+    public boolean isRook() {
+        return false;
+    }
+
+    @Override
+    public boolean isQueen() {
+        return false;
+    }
+
+    @Override
+    public boolean isKing() {
+        return false;
+    }
+
+    @Override
     public List<Move> getMoves(final Board board) {
         final List<Move> moves = new ArrayList<>();
         final int[] candidates = {8, 16, 7, 9};

@@ -3,6 +3,8 @@ package foxtail.board;
 import foxtail.Color;
 import foxtail.board.move.Move;
 import foxtail.piece.*;
+import foxtail.player.BlackPlayer;
+import foxtail.player.WhitePlayer;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,6 +18,11 @@ public class Board {
     private final List<Tile> board;
     private final List<Piece> whitePieces;
     private final List<Piece> blackPieces;
+    private final List<Move> whiteMoves;
+    private final List<Move> blackMoves;
+    private final WhitePlayer whitePlayer;
+    private final BlackPlayer blackPlayer;
+
 
     public static List<Boolean> getBooleanColumn(int columnNumber) {
         List<Boolean> column = new ArrayList<Boolean>();
@@ -41,11 +48,12 @@ public class Board {
 
     public Board(BoardBuilder boardBuilder) {
         this.board = createBoard(boardBuilder);
-        this.whitePieces = getWhitePieces(this.board);
-        this.blackPieces = getBlackPieces(this.board);
-
-        final List<Move> whiteMoves = getMoves(this.whitePieces);
-        final List<Move> blackMoves = getMoves(this.blackPieces);
+        this.whitePieces = calculateWhitePieces();
+        this.blackPieces = calculateBlackPieces();
+        this.whiteMoves = calculateWhiteMoves();
+        this.blackMoves = calculateBlackMoves();
+        this.whitePlayer = new WhitePlayer(this, this.whiteMoves, this.blackMoves);
+        this.blackPlayer = new BlackPlayer(this, this.whiteMoves, this.blackMoves);
     }
 
     @Override
@@ -73,9 +81,9 @@ public class Board {
         return builder.toString();
     }
 
-    private static List<Piece> getWhitePieces(final List<Tile> board) {
-        final List<Piece> whitePieces = new ArrayList<Piece>();
-        for(final Tile tile : board) {
+    private List<Piece> calculateWhitePieces() {
+        final List<Piece> whitePieces = new ArrayList<>();
+        for(final Tile tile : this.board) {
             if(tile.isOccupied() && tile.getPiece().getColor() == Color.WHITE) {
                 whitePieces.add(tile.getPiece());
             }
@@ -83,9 +91,9 @@ public class Board {
         return Collections.unmodifiableList(whitePieces);
     }
 
-    private static List<Piece> getBlackPieces(final List<Tile> board) {
-        final List<Piece> blackPieces = new ArrayList<Piece>();
-        for(final Tile tile : board) {
+    private List<Piece> calculateBlackPieces() {
+        final List<Piece> blackPieces = new ArrayList<>();
+        for(final Tile tile : this.board) {
             if(tile.isOccupied() && tile.getPiece().getColor() == Color.BLACK) {
                 blackPieces.add(tile.getPiece());
             }
@@ -93,10 +101,18 @@ public class Board {
         return Collections.unmodifiableList(blackPieces);
     }
 
-    private List<Move> getMoves(final List<Piece> pieces) {
+    private List<Move> calculateWhiteMoves() {
         final List<Move> moves = new ArrayList<Move>();
-        for(final Piece piece : pieces) {
-            moves.addAll(piece.getMoves(this));
+        for(final Piece whitePiece : whitePieces) {
+            moves.addAll(whitePiece.getMoves(this));
+        }
+        return Collections.unmodifiableList(moves);
+    }
+
+    private List<Move> calculateBlackMoves() {
+        final List<Move> moves = new ArrayList<Move>();
+        for(final Piece blackPiece : blackPieces) {
+            moves.addAll(blackPiece.getMoves(this));
         }
         return Collections.unmodifiableList(moves);
     }
@@ -153,5 +169,21 @@ public class Board {
 
     public Tile getTile(final int coordinate) {
         return board.get(coordinate);
+    }
+
+    public List<Piece> getWhitePieces() {
+        return this.whitePieces;
+    }
+
+    public List<Piece> getBlackPieces() {
+        return this.blackPieces;
+    }
+
+    public List<Move> getWhiteMoves() {
+        return this.whiteMoves;
+    }
+
+    public List<Move> getBlackMoves() {
+        return this.blackMoves;
     }
 }

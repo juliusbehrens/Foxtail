@@ -28,6 +28,36 @@ public class King extends Piece {
     }
 
     @Override
+    public boolean isPawn() {
+        return false;
+    }
+
+    @Override
+    public boolean isKnight() {
+        return false;
+    }
+
+    @Override
+    public boolean isBishop() {
+        return false;
+    }
+
+    @Override
+    public boolean isRook() {
+        return false;
+    }
+
+    @Override
+    public boolean isQueen() {
+        return false;
+    }
+
+    @Override
+    public boolean isKing() {
+        return true;
+    }
+
+    @Override
     public List<Move> getMoves(final Board board) {
         final List<Move> moves = new ArrayList<>();
         final int[] candidates = {-9, -8, -7, -1, 1, 7, 8, 9};
