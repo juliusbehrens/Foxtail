@@ -31,4 +31,5 @@ public abstract class Move {
         return this.piece;
     }
 
+    public abstract Board make();
 }

@@ -4,6 +4,7 @@ import foxtail.Color;
 import foxtail.board.move.Move;
 import foxtail.piece.*;
 import foxtail.player.BlackPlayer;
+import foxtail.player.Player;
 import foxtail.player.WhitePlayer;
 
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ public class Board {
     private final List<Move> blackMoves;
     private final WhitePlayer whitePlayer;
     private final BlackPlayer blackPlayer;
+    private final Player currentPlayer;
 
 
     public static List<Boolean> getBooleanColumn(int columnNumber) {
@@ -54,6 +56,8 @@ public class Board {
         this.blackMoves = calculateBlackMoves();
         this.whitePlayer = new WhitePlayer(this, this.whiteMoves, this.blackMoves);
         this.blackPlayer = new BlackPlayer(this, this.whiteMoves, this.blackMoves);
+        //TODO
+        this.currentPlayer = null;
     }
 
     @Override
@@ -167,6 +171,16 @@ public class Board {
         return builder.build();
     }
 
+    public static List<Move> getAttacksOnPosition(final int position, List<Move> moves) {
+        final List<Move> attackMoves = new ArrayList<>();
+        for(final Move move : moves) {
+            if(position == move.getDestinationCoordinate()) {
+                attackMoves.add(move);
+            }
+        }
+        return Collections.unmodifiableList(attackMoves);
+    }
+
     public Tile getTile(final int coordinate) {
         return board.get(coordinate);
     }
@@ -186,4 +200,17 @@ public class Board {
     public List<Move> getBlackMoves() {
         return this.blackMoves;
     }
-}
+
+    public Player getWhitePlayer() {
+        return this.whitePlayer;
+    }
+
+    public Player getBlackPlayer() {
+        return this.blackPlayer;
+    }
+
+    public Player getCurrentPlayer() {
+        return this.currentPlayer;
+    }
+
+ }

@@ -9,4 +9,10 @@ public class MajorMove extends Move {
                      final int destinationCoordinate) {
         super(board, piece, destinationCoordinate);
     }
+
+    @Override
+    public Board make() {
+        //TODO
+        return null;
+    }
 }

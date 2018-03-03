@@ -14,4 +14,10 @@ public class AttackMove extends Move {
         super(board, piece, destinationCoordinate);
         this.attackedPiece = attackedPiece;
     }
+
+    @Override
+    public Board make() {
+        //TODO
+        return null;
+    }
 }

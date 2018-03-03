@@ -1,5 +1,6 @@
 package foxtail.player;
 
+import foxtail.Color;
 import foxtail.board.Board;
 import foxtail.board.move.Move;
 import foxtail.piece.Piece;
@@ -16,4 +17,15 @@ public class BlackPlayer extends Player{
     public List<Piece> getPieces() {
         return this.board.getBlackPieces();
     }
+
+    @Override
+    public Color getColor() {
+        return Color.BLACK;
+    }
+
+    @Override
+    public Player getOpponent() {
+        return this.board.getWhitePlayer();
+    }
+
 }
