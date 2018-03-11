@@ -9,7 +9,7 @@ import java.util.List;
 
 public class BlackPlayer extends Player{
 
-    public BlackPlayer(Board board, List<Move> playerMoves, List<Move> opponentMoves) {
+    public BlackPlayer(final Board board, final List<Move> playerMoves, final List<Move> opponentMoves) {
         super(board, playerMoves, opponentMoves);
     }
 

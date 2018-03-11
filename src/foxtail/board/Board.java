@@ -48,7 +48,7 @@ public class Board {
         return Collections.unmodifiableList(row);
     }
 
-    public Board(BoardBuilder boardBuilder) {
+    public Board(final BoardBuilder boardBuilder) {
         this.board = createBoard(boardBuilder);
         this.whitePieces = calculateWhitePieces();
         this.blackPieces = calculateBlackPieces();
@@ -56,8 +56,7 @@ public class Board {
         this.blackMoves = calculateBlackMoves();
         this.whitePlayer = new WhitePlayer(this, this.whiteMoves, this.blackMoves);
         this.blackPlayer = new BlackPlayer(this, this.whiteMoves, this.blackMoves);
-        //TODO
-        this.currentPlayer = null;
+        this.currentPlayer = boardBuilder.currentColor.choosePlayer(this.whitePlayer, this.blackPlayer);
     }
 
     @Override

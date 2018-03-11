@@ -10,7 +10,7 @@ import java.util.Map;
 public final class BoardBuilder {
 
      Map<Integer, Piece> pieces;
-     private Color currentColor;
+     Color currentColor; //nextMoveMake
 
     public BoardBuilder() {
         this.pieces = new HashMap<>();
