@@ -24,7 +24,7 @@ public class MajorMove extends Move {
             boardBuilder.setPiece(piece);
         }
         //TODO move piece
-        boardBuilder.setPiece(null);
+        boardBuilder.setPiece(this.piece.movePiece(this));
         boardBuilder.setCurrentColor(this.board.getCurrentPlayer().getOpponent().getColor());
 
         return boardBuilder.build();

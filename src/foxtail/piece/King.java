@@ -28,6 +28,11 @@ public class King extends Piece {
     }
 
     @Override
+    public King movePiece(final Move move) {
+        return new King(move.getPiece().getColor(), move.getDestinationCoordinate());
+    }
+
+    @Override
     public boolean isPawn() {
         return false;
     }

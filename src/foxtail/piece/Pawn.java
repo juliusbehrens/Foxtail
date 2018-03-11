@@ -26,6 +26,11 @@ public class Pawn extends Piece {
     }
 
     @Override
+    public Pawn movePiece(final Move move) {
+        return new Pawn(move.getPiece().getColor(), move.getDestinationCoordinate());
+    }
+
+    @Override
     public boolean isPawn() {
         return true;
     }

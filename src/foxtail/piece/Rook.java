@@ -28,6 +28,11 @@ public class Rook extends Piece {
     }
 
     @Override
+    public Rook movePiece(final Move move) {
+        return new Rook(move.getPiece().getColor(), move.getDestinationCoordinate());
+    }
+
+    @Override
     public boolean isPawn() {
         return false;
     }

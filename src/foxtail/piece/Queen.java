@@ -28,6 +28,11 @@ public class Queen extends Piece {
     }
 
     @Override
+    public Queen movePiece(final Move move) {
+        return new Queen(move.getPiece().getColor(), move.getDestinationCoordinate());
+    }
+
+    @Override
     public boolean isPawn() {
         return false;
     }

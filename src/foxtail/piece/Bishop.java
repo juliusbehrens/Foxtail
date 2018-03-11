@@ -28,6 +28,11 @@ public class Bishop extends Piece {
     }
 
     @Override
+    public Bishop movePiece(final Move move) {
+        return new Bishop(move.getPiece().getColor(), move.getDestinationCoordinate());
+    }
+
+    @Override
     public boolean isPawn() {
         return false;
     }
